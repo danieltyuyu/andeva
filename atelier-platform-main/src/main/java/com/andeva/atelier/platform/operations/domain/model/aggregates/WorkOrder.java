@@ -287,8 +287,8 @@ public class WorkOrder extends AbstractDomainAggregateRoot<WorkOrder> {
      */
     private void recalculateTotalAmount() {
         this.totalAmount = this.tasks.stream()
-                .map(WorkOrderTask::getPrice)
-                .reduce(Money.ZERO, Money::plus);
+                .map(task -> task.getPrice())
+                .reduce(Money.ZERO, (m1, m2) -> m1.plus(m2));
     }
 
     /**

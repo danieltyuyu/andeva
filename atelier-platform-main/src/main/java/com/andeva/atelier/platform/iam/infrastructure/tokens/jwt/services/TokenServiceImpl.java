@@ -26,7 +26,6 @@ public class TokenServiceImpl implements BearerTokenService {
     private int expirationDays;
 
     @Override
-    @SuppressWarnings("unused")
     public String generateToken(Authentication authentication) {
         return generateToken(authentication.getName());
     }
@@ -48,7 +47,7 @@ public class TokenServiceImpl implements BearerTokenService {
 
     @Override
     public String getUsernameFromToken(String token) {
-        return extractClaim(token, Claims::getSubject);
+        return extractClaim(token, claims -> claims.getSubject());
     }
 
     @Override

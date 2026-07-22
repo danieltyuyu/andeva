@@ -165,8 +165,8 @@ public class WorkOrderTask {
 
         this.price = this.products.stream()
                 .filter(p -> !p.isDeleted())
-                .map(WorkOrderTaskProduct::getTotalAmount)
-                .reduce(newLaborPrice, Money::plus);
+                .map(product -> product.getTotalAmount())
+                .reduce(newLaborPrice, (m1, m2) -> m1.plus(m2));
     }
 
     /**

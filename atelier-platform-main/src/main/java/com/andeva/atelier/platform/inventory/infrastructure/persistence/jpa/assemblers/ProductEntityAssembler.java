@@ -32,7 +32,7 @@ public class ProductEntityAssembler {
             entity.setBatches(new java.util.ArrayList<>());
         }
         
-        var productBatchIds = product.getBatches().stream().map(ProductBatch::getBatchId).collect(Collectors.toSet());
+        var productBatchIds = product.getBatches().stream().map(batch -> batch.getBatchId()).collect(Collectors.toSet());
         entity.getBatches().removeIf(b -> !productBatchIds.contains(b.getId()));
         
         for (ProductBatch b : product.getBatches()) {

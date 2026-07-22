@@ -53,8 +53,8 @@ public class VehicleQueryServiceImpl implements VehicleQueryService {
         var activeRegistrations = vehicleRegistrationRepository.findAllActiveByUserId(userId);
         return activeRegistrations.stream()
                 .map(reg -> vehicleRepository.findById(reg.getVehicleId()))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
+                .filter(opt -> opt.isPresent())
+                .map(opt -> opt.get())
                 .toList();
     }
 

@@ -120,7 +120,7 @@ public class Voucher extends AbstractDomainAggregateRoot<Voucher> {
     public BigDecimal getTotalPaidAmount() {
         return payments.stream()
                 .map(p -> p.getAmount().amount())
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO, (acc, val) -> acc.add(val));
     }
 
     /**

@@ -1,7 +1,6 @@
 package com.andeva.atelier.platform.billing.infrastructure.outbound.facthub;
 
 import com.andeva.atelier.platform.billing.application.outboundservices.FacthubGateway;
-import com.andeva.atelier.platform.billing.domain.model.aggregates.Quote;
 import com.andeva.atelier.platform.billing.domain.model.valueobjects.VoucherType;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
